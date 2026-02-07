@@ -6,105 +6,276 @@
 <title>JASPR COA STORE</title>
 
 <style>
-/* ================= RESET ================= */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-  font-family: system-ui, sans-serif;
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui,-apple-system,sans-serif;
 }
 
-/* ================= BASE ================= */
-body {
-  background: #0b0f1f;
-  color: #fff;
-  min-height: 100vh;
+body{
+  background:#0b0f1f;
+  color:#fff;
 }
 
-.container {
-  max-width: 960px;
-  margin: auto;
-  padding: 16px;
+.container{
+  max-width:900px;
+  margin:auto;
+  padding:16px;
 }
 
-/* ================= HEADER ================= */
-header {
-  text-align: center;
-  margin-bottom: 20px;
+/* HEADER */
+header{
+  text-align:center;
+  margin-bottom:18px;
+}
+header h1{
+  color:#fbbf24;
+  font-size:24px;
+}
+header p{
+  opacity:.7;
+  font-size:13px;
+  margin:4px 0 8px;
+}
+.status{
+  display:inline-block;
+  padding:6px 16px;
+  border-radius:20px;
+  background:#4b5563;
+  font-size:12px;
+  font-weight:700;
 }
 
-h1 {
-  font-size: 24px;
-  color: #ffd166;
-  margin-bottom: 6px;
+/* PROMO */
+.promo{
+  margin:16px 0;
+  padding:10px;
+  background:linear-gradient(90deg,#1a0030,#2a0015);
+  border:1px solid #3a0a14;
+  border-radius:10px;
+  text-align:center;
+  font-size:13px;
+  color:#fca5a5;
 }
 
-.tagline {
-  font-size: 13px;
-  opacity: 0.7;
-  margin-bottom: 10px;
+/* INFO */
+.info{
+  background:#120015;
+  border:1px solid #3a0a14;
+  border-radius:12px;
+  padding:14px;
+  text-align:center;
+  font-size:13px;
+  line-height:1.6;
+  margin-bottom:20px;
 }
 
-.status {
-  display: inline-block;
-  padding: 8px 18px;
-  border-radius: 20px;
-  font-size: 12px;
-  font-weight: 700;
-  background: #4b5563;
+/* SECTION */
+.section{
+  margin-bottom:22px;
+}
+.section h3{
+  margin-bottom:10px;
+  font-size:15px;
+  color:#c7d2fe;
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(160px,1fr));
+  gap:12px;
 }
 
-/* ================= PROMO ================= */
-.promo {
-  background: linear-gradient(90deg, #1a0030, #2a0015);
-  padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #3a0a14;
-  text-align: center;
-  font-size: 13px;
-  color: #fca5a5;
-  font-weight: 600;
-  margin-bottom: 16px;
+/* CARD */
+.card{
+  background:#141a33;
+  border:1px solid rgba(255,255,255,.1);
+  border-radius:14px;
+  padding:14px;
+  position:relative;
+}
+.card h4{
+  font-size:14px;
+  margin-bottom:6px;
+}
+.desc{
+  font-size:12px;
+  color:#a5b4fc;
+  margin-bottom:6px;
+}
+.price{
+  font-size:16px;
+  font-weight:700;
+  color:#fbbf24;
+  margin:6px 0;
+}
+.stock{
+  font-size:12px;
+  font-weight:600;
+  color:#a855f7;
+  margin-bottom:8px;
 }
 
-/* ================= INFO ================= */
-.info {
-  background: #120015;
-  border: 1px solid #3a0a14;
-  border-radius: 12px;
-  padding: 14px;
-  text-align: center;
-  font-size: 13px;
-  line-height: 1.5;
-  margin-bottom: 20px;
+/* BADGE */
+.badge{
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:10px;
+  padding:4px 10px;
+  border-radius:999px;
+  font-weight:700;
+}
+.best{background:#7c3aed;}
+.bundle{background:#0ea5e9;}
+.limited{background:#dc2626;}
+.armor{background:#f59e0b;color:#000;}
+.pet{background:#ec4899;}
+
+/* BUTTON */
+button{
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:10px;
+  background:#374151;
+  color:#9ca3af;
+  font-weight:700;
+  cursor:not-allowed;
 }
 
-.info span {
-  color: #fca5a5;
-  font-weight: 600;
+/* FOOTER */
+footer{
+  margin:30px 0 10px;
+  text-align:center;
+  font-size:12px;
+  opacity:.6;
 }
 
-/* ================= SECTION ================= */
-.section {
-  margin-bottom: 24px;
+@media(max-width:380px){
+  .grid{grid-template-columns:1fr;}
 }
+</style>
+</head>
 
-.section h3 {
-  font-size: 15px;
-  color: #c7d2fe;
-  margin-bottom: 12px;
-}
+<body>
+<div class="container">
 
-.grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
-  gap: 12px;
-}
+<header>
+  <h1>JASPR COA STORE</h1>
+  <p>Curse of Aros • Manual Process</p>
+  <div class="status">OFFLINE</div>
+</header>
 
-/* ================= CARD ================= */
-.card {
-  background: #141a33;
-  border: 1px solid rgba(255,255,255,.1);
+<div class="promo">
+📢 Order via Instagram @jaspr.coashop
+</div>
+
+<div class="info">
+🔒 Order hanya via Instagram<br>
+Jam Operasional: <b>17:00 - 22:00 WIB</b><br>
+Libur: <b>Jumat, Sabtu, Minggu</b>
+</div>
+
+<!-- GOLD -->
+<div class="section">
+<h3>💰 Gold</h3>
+<div class="grid">
+  <div class="card">
+    <div class="badge best">BEST</div>
+    <h4>Gold 1M</h4>
+    <div class="price">Rp 3.000</div>
+    <div class="stock">⏳ BELUM TERSEDIA</div>
+    <button>STOCK KOSONG</button>
+  </div>
+
+  <div class="card">
+    <div class="badge best">VALUE</div>
+    <h4>Gold 5M</h4>
+    <div class="price">Rp 12.500</div>
+    <div class="stock">⏳ BELUM TERSEDIA</div>
+    <button>STOCK KOSONG</button>
+  </div>
+
+  <div class="card">
+    <div class="badge limited">LIMITED</div>
+    <h4>Gold 10M</h4>
+    <div class="price">Rp 26.000</div>
+    <div class="stock">⏳ BELUM TERSEDIA</div>
+    <button>STOCK KOSONG</button>
+  </div>
+</div>
+</div>
+
+<!-- BUNDLE -->
+<div class="section">
+<h3>🎁 Bundle</h3>
+<div class="grid">
+  <div class="card">
+    <div class="badge bundle">BUNDLE</div>
+    <h4>Essence Pack Starter</h4>
+    <div class="desc">1M Gold + 500 Essence</div>
+    <div class="price">Rp 14.000</div>
+    <div class="stock">⏳ BELUM TERSEDIA</div>
+    <button>STOCK KOSONG</button>
+  </div>
+
+  <div class="card">
+    <div class="badge bundle">BUNDLE</div>
+    <h4>Basic Essence Pack</h4>
+    <div class="desc">5M Gold + 1000 Essence</div>
+    <div class="price">Rp 29.000</div>
+    <div class="stock">⏳ BELUM TERSEDIA</div>
+    <button>STOCK KOSONG</button>
+  </div>
+</div>
+</div>
+
+<!-- ARMOR -->
+<div class="section">
+<h3>⚔️ Armor & Senjata</h3>
+<div class="grid">
+  <div class="card">
+    <div class="badge armor">SET</div>
+    <h4>Crimstone Armor Set</h4>
+    <div class="desc">Full Set + Senjata</div>
+    <div class="price">Rp 2.000</div>
+    <div class="stock">⏳ BELUM TERSEDIA</div>
+    <button>STOCK KOSONG</button>
+  </div>
+
+  <div class="card">
+    <div class="badge armor">SET</div>
+    <h4>Magic Armor Set</h4>
+    <div class="desc">Full Armor + Weapon</div>
+    <div class="price">Rp 2.000</div>
+    <div class="stock">⏳ BELUM TERSEDIA</div>
+    <button>STOCK KOSONG</button>
+  </div>
+</div>
+</div>
+
+<!-- PET -->
+<div class="section">
+<h3>🐾 Pet</h3>
+<div class="grid">
+  <div class="card">
+    <div class="badge pet">RARE</div>
+    <h4>Rare Pet</h4>
+    <div class="price">Rp 285.000</div>
+    <div class="stock">⏳ BELUM TERSEDIA</div>
+    <button>STOCK KOSONG</button>
+  </div>
+</div>
+</div>
+
+<footer>
+Instagram only • Anti judol • © JASPR COA
+</footer>
+
+</div>
+</body>
+  </html>  border: 1px solid rgba(255,255,255,.1);
   border-radius: 14px;
   padding: 14px;
   position: relative;
