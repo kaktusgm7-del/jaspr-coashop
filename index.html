@@ -1,189 +1,213 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>JASPR Store • Top Up Curse of Aros</title>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>JASPR COA STORE</title>
 
-  <style>
-    :root{
-      --bg:#050505;--card:#0b0b0b;--border:#1f1f1f;--text:#f5f5f5;--muted:#9ca3af;
-      --accent:#ef4444;--warn:#f59e0b;--ok:#22c55e;
-    }
-    *{box-sizing:border-box}
-    body{
-      margin:0;
-      font-family:Inter,system-ui,Arial,sans-serif;
-      background:radial-gradient(1200px 600px at top,#111827,#050505);
-      color:var(--text)
-    }
-    .container{max-width:920px;margin:auto;padding:14px}
-    h1{margin:0 0 4px;font-size:26px}
-    h2,h3{margin:18px 0 10px}
-    p{color:var(--muted);line-height:1.6}
+<style>
+:root{
+  --red:#b00000;
+  --yellow:#eab308;
+  --bg:rgba(0,0,0,.65);
+  --muted:rgba(255,255,255,.7);
+}
 
-    .badge{
-      padding:4px 10px;
-      border-radius:999px;
-      font-size:12px;
-      border:1px solid var(--border);
-      background:#020617
-    }
+*{box-sizing:border-box}
 
-    .card{
-      background:linear-gradient(180deg,#0b0b0b,#050505);
-      border:1px solid var(--border);
-      border-radius:18px;
-      padding:16px;
-      margin-bottom:14px
-    }
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+  background:linear-gradient(135deg,#7a0c0c,#000);
+  color:white;
+  min-height:100vh;
+}
 
-    /* ===== BANNER ===== */
-    .banner{
-      background:linear-gradient(135deg,#7f1d1d,#450a0a);
-      border:1px solid #991b1b;
-      color:#fee2e2;
-      padding:14px;
-      border-radius:16px;
-      text-align:center;
-      font-weight:700;
-      margin-bottom:14px;
-      animation:pulse 2.2s infinite;
-    }
-    @keyframes pulse{
-      0%,100%{opacity:1}
-      50%{opacity:.75}
-    }
+.container{
+  max-width:1000px;
+  margin:auto;
+  padding:24px;
+}
 
-    .grid{
-      display:grid;
-      grid-template-columns:repeat(auto-fit,minmax(210px,1fr));
-      gap:12px
-    }
+/* HEADER */
+header{
+  text-align:center;
+  margin-bottom:28px;
+}
+header h1{
+  margin:0;
+  font-size:34px;
+  letter-spacing:2px;
+}
+header p{
+  margin:6px 0 14px;
+  color:var(--muted);
+}
+.status{
+  display:inline-block;
+  background:var(--red);
+  padding:12px 22px;
+  border-radius:14px;
+  font-weight:bold;
+  font-size:14px;
+}
 
-    .item{
-      border:1px solid var(--border);
-      border-radius:16px;
-      padding:14px;
-      background:#050505;
-      transition:.25s;
-      position:relative;
-      opacity:.45
-    }
+/* INFO */
+.info{
+  background:var(--bg);
+  border-radius:18px;
+  padding:20px;
+  margin-bottom:26px;
+  line-height:1.7;
+}
+.info h3{
+  margin-top:0;
+  color:#fecaca;
+}
 
-    .tag{
-      position:absolute;
-      top:10px;
-      right:10px;
-      font-size:11px;
-      padding:4px 8px;
-      border-radius:999px;
-      font-weight:600
-    }
-    .tag.best{background:#7c2d12;color:#ffedd5}
-    .tag.limited{background:#3f1d1d;color:#fecaca}
-    .tag.save{background:#14532d;color:#bbf7d0}
+/* GRID */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+  gap:16px;
+}
 
-    .price{font-size:18px;font-weight:700}
-    .stock{font-size:13px;color:#f87171}
+/* CARD */
+.card{
+  background:var(--bg);
+  border-radius:18px;
+  padding:18px;
+  text-align:center;
+  border:1px solid rgba(255,255,255,0.06);
+  position:relative;
+}
 
-    .btn{
-      padding:12px 16px;
-      border-radius:14px;
-      border:1px solid var(--border);
-      background:#020617;
-      color:#fff;
-      font-weight:600;
-      cursor:not-allowed;
-      opacity:.4
-    }
+.card h3{
+  margin:8px 0;
+}
 
-    footer{
-      text-align:center;
-      color:var(--muted);
-      font-size:13px;
-      margin:32px 0
-    }
-    .footer-note{margin-top:6px;font-size:12px;color:#6b7280}
-  </style>
+.price{
+  font-size:18px;
+  font-weight:bold;
+  color:#fbbf24;
+  margin:6px 0;
+}
+
+.badge{
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:11px;
+  padding:4px 10px;
+  border-radius:999px;
+  font-weight:bold;
+}
+
+.off{
+  background:#7f1d1d;
+  color:#fecaca;
+}
+
+.soon{
+  background:#713f12;
+  color:#fef08a;
+}
+
+.note{
+  text-align:center;
+  margin-top:30px;
+  font-size:13px;
+  color:var(--muted);
+  border-top:1px solid rgba(255,255,255,0.1);
+  padding-top:14px;
+}
+</style>
 </head>
 
 <body>
+
 <div class="container">
 
-<header class="card">
-  <h1>JASPR Store</h1>
-  <p>Top Up <b>Curse of Aros</b> • Manual Process</p>
-  <div style="display:flex;gap:8px;flex-wrap:wrap">
-    <span class="badge">Status: OFFLINE</span>
-    <span class="badge">💳 DANA Only</span>
-    <span class="badge">🔒 Locked Logic</span>
-  </div>
+<header>
+  <h1>JASPR</h1>
+  <p>COA STORE • Curse of Aros</p>
+  <div class="status">OFF BUY / NO STOCK</div>
 </header>
 
-<!-- ===== NO STOCK BANNER ===== -->
-<div class="banner">
-  ⛔ NO STOCK • KEEP PROCESS<br>
-  <span style="font-size:13px;font-weight:500">
-    Update stok akan diinformasikan melalui website & Instagram
-  </span>
+<div class="info">
+  <h3>📢 Informasi</h3>
+  <ul>
+    <li>Status saat ini: <b>OFF BUY</b></li>
+    <li>Item & harga sudah tersedia di website</li>
+    <li>Update stok akan diumumkan di web & Instagram</li>
+    <li>Order hanya via Instagram resmi</li>
+  </ul>
 </div>
 
-<section class="card">
-  <h3>📄 Informasi Toko</h3>
-  <p>
-    Top up Curse of Aros proses manual.<br>
-    Admin <b>tidak pernah meminta OTP</b>.
-  </p>
-</section>
+<div class="grid">
 
-<section>
-  <h2>🛍️ Daftar Item</h2>
-
-  <div class="grid">
-    <!-- ===== GOLD ===== -->
-    <div class="item">
-      <span class="tag best">🔥 TERLARIS</span>
-      <b>Gold 1M</b>
-      <div class="price">Rp3.000</div>
-      <div class="stock">⛔ Stok Habis</div>
-    </div>
-
-    <div class="item">
-      <span class="tag save">💸 PALING HEMAT</span>
-      <b>Gold 5M</b>
-      <div class="price">Rp5.000</div>
-      <div class="stock">⛔ Stok Habis</div>
-    </div>
-
-    <div class="item">
-      <b>Gold 10M</b>
-      <div class="price">Rp9.000</div>
-      <div class="stock">⛔ Stok Habis</div>
-    </div>
-
-    <!-- ===== ESSENCE ===== -->
-    <div class="item">
-      <b>Essence 500</b>
-      <div class="price">Rp4.000</div>
-      <div class="stock">⛔ Stok Habis</div>
-    </div>
-
-    <!-- ===== SHARD ===== -->
-    <div class="item">
-      <span class="tag limited">⏳ TERBATAS</span>
-      <b>Shard 100 (Login)</b>
-      <div class="price">Rp31.000</div>
-      <div class="stock">⛔ Stok Habis</div>
-    </div>
+  <!-- GOLD -->
+  <div class="card">
+    <span class="badge off">NO STOCK</span>
+    <h3>Gold 1M</h3>
+    <div class="price">Rp 3.000</div>
   </div>
-</section>
 
-<footer>
-  © 2026 JASPR Store • All Rights Reserved
-  <div class="footer-note">Fast • Secure • Manual Process</div>
-</footer>
+  <div class="card">
+    <span class="badge off">NO STOCK</span>
+    <h3>Gold 5M</h3>
+    <div class="price">Rp 12.500</div>
+  </div>
+
+  <div class="card">
+    <span class="badge soon">BELUM TERSEDIA</span>
+    <h3>Gold 10M</h3>
+    <div class="price">Rp 26.000</div>
+  </div>
+
+  <!-- BUNDLE -->
+  <div class="card">
+    <span class="badge off">NO STOCK</span>
+    <h3>Bundle 1M + 150 Essence</h3>
+    <div class="price">Rp 4.000</div>
+  </div>
+
+  <div class="card">
+    <span class="badge off">NO STOCK</span>
+    <h3>Bundle 5M + 500 Essence</h3>
+    <div class="price">Rp 13.500</div>
+  </div>
+
+  <div class="card">
+    <span class="badge off">NO STOCK</span>
+    <h3>
+      Bundle 10M + 1000 Essence  
+      <br><small>(Bonus 100 Essence)</small>
+    </h3>
+    <div class="price">Rp 28.000</div>
+  </div>
+
+  <!-- SHARDS -->
+  <div class="card">
+    <span class="badge soon">BELUM TERSEDIA</span>
+    <h3>Shard 100</h3>
+    <div class="price">Rp 32.000</div>
+  </div>
+
+  <div class="card">
+    <span class="badge soon">BELUM TERSEDIA</span>
+    <h3>Shard 200</h3>
+    <div class="price">Rp 60.000</div>
+  </div>
 
 </div>
+
+<div class="note">
+  © JASPR COA STORE • OFFICIAL WEBSITE  
+  <br>Jam Operasional: 17:00 – 22.00 WIB
+</div>
+
+</div>
+
 </body>
 </html>
