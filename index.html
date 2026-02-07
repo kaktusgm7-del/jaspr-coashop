@@ -2,109 +2,299 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JASPR COA STORE</title>
 
-<meta name="description" content="JASPR Store - Curse of Aros Trusted Seller">
-<meta name="theme-color" content="#120018">
-
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif}
-
-body{
-  background:linear-gradient(135deg,#0b0f1f,#1a0029,#12000a);
-  color:#fff;
-  min-height:100vh;
+/* ================= RESET ================= */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: system-ui, sans-serif;
 }
 
-/* HEADER */
-header{
-  padding:20px;
-  text-align:center;
-  background:linear-gradient(135deg,#1b0a3a,#2a0015);
-  box-shadow:0 6px 18px rgba(0,0,0,.6);
-}
-header h1{
-  font-size:26px;
-  background:linear-gradient(45deg,#ff6b6b,#ffd166);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
-}
-header p{
-  font-size:13px;
-  opacity:.8;
-  margin-top:4px;
+/* ================= BASE ================= */
+body {
+  background: #0b0f1f;
+  color: #fff;
+  min-height: 100vh;
 }
 
-/* STATUS */
-.status{
-  margin-top:12px;
-  display:inline-block;
-  padding:8px 18px;
-  border-radius:999px;
-  font-size:12px;
-  font-weight:700;
-}
-.status.online{background:#22c55e;color:#022c14}
-.status.offline{background:#ef4444;color:#fff}
-
-/* LOCK BOX */
-.lock-box{
-  margin:14px;
-  padding:14px;
-  border-radius:14px;
-  background:linear-gradient(135deg,#3a0d12,#1a0010);
-  border:1px solid #7a0f14;
-  font-size:13px;
-  text-align:center;
-}
-.lock-box span{color:#ff9b9b;font-weight:600}
-.lock-box a{
-  display:inline-block;
-  margin-top:8px;
-  padding:8px 16px;
-  background:rgba(255,255,255,.1);
-  border-radius:10px;
-  color:#fff;
-  text-decoration:none;
-  font-size:12px;
+.container {
+  max-width: 960px;
+  margin: auto;
+  padding: 16px;
 }
 
-/* SECTION */
-.section{margin:18px 14px}
-.section h3{
-  margin-bottom:12px;
-  font-size:16px;
-  color:#c4b5fd;
+/* ================= HEADER ================= */
+header {
+  text-align: center;
+  margin-bottom: 20px;
 }
 
-/* GRID */
-.products{
-  display:grid;
-  grid-template-columns:repeat(2,1fr);
-  gap:12px;
+h1 {
+  font-size: 24px;
+  color: #ffd166;
+  margin-bottom: 6px;
 }
 
-/* CARD */
-.card{
-  background:linear-gradient(135deg,#0f1633,#1b0022);
-  padding:14px;
-  border-radius:14px;
-  border:1px solid rgba(255,255,255,.06);
-  position:relative;
+.tagline {
+  font-size: 13px;
+  opacity: 0.7;
+  margin-bottom: 10px;
 }
-.card b{font-size:15px}
-.card small{font-size:12px;opacity:.6;display:block;margin-top:2px}
 
-/* BADGE */
-.badge{
-  position:absolute;
-  top:10px;
-  right:10px;
-  padding:4px 8px;
-  font-size:10px;
-  border-radius:999px;
-  font-weight:700;
+.status {
+  display: inline-block;
+  padding: 8px 18px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 700;
+  background: #4b5563;
+}
+
+/* ================= PROMO ================= */
+.promo {
+  background: linear-gradient(90deg, #1a0030, #2a0015);
+  padding: 10px;
+  border-radius: 10px;
+  border: 1px solid #3a0a14;
+  text-align: center;
+  font-size: 13px;
+  color: #fca5a5;
+  font-weight: 600;
+  margin-bottom: 16px;
+}
+
+/* ================= INFO ================= */
+.info {
+  background: #120015;
+  border: 1px solid #3a0a14;
+  border-radius: 12px;
+  padding: 14px;
+  text-align: center;
+  font-size: 13px;
+  line-height: 1.5;
+  margin-bottom: 20px;
+}
+
+.info span {
+  color: #fca5a5;
+  font-weight: 600;
+}
+
+/* ================= SECTION ================= */
+.section {
+  margin-bottom: 24px;
+}
+
+.section h3 {
+  font-size: 15px;
+  color: #c7d2fe;
+  margin-bottom: 12px;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+}
+
+/* ================= CARD ================= */
+.card {
+  background: #141a33;
+  border: 1px solid rgba(255,255,255,.1);
+  border-radius: 14px;
+  padding: 14px;
+  position: relative;
+}
+
+.card h4 {
+  font-size: 14px;
+  margin-bottom: 6px;
+  line-height: 1.3;
+}
+
+.desc {
+  font-size: 12px;
+  color: #a5b4fc;
+  margin-bottom: 8px;
+}
+
+.price {
+  font-size: 16px;
+  font-weight: 700;
+  color: #fbbf24;
+  margin: 8px 0;
+}
+
+.stock {
+  font-size: 12px;
+  font-weight: 600;
+  color: #a855f7;
+  margin-bottom: 8px;
+}
+
+/* ================= BADGE ================= */
+.badge {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 10px;
+  padding: 4px 10px;
+  border-radius: 999px;
+  font-weight: 700;
+}
+
+.badge.best    { background: #7c3aed; }
+.badge.bundle  { background: #0ea5e9; }
+.badge.limited { background: #dc2626; }
+.badge.armor   { background: #f59e0b; color:#000; }
+.badge.pet     { background: #ec4899; }
+
+/* ================= BUTTON ================= */
+button {
+  width: 100%;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  background: #374151;
+  color: #9ca3af;
+  font-weight: 600;
+  cursor: not-allowed;
+}
+
+/* ================= FOOTER ================= */
+footer {
+  margin-top: 30px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(255,255,255,.1);
+  text-align: center;
+  font-size: 12px;
+  color: #9ca3af;
+  line-height: 1.6;
+}
+
+/* ================= TOAST ================= */
+.toast {
+  position: fixed;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%) translateY(100px);
+  background: #22c55e;
+  color: #fff;
+  padding: 12px 20px;
+  border-radius: 10px;
+  font-size: 13px;
+  font-weight: 600;
+  opacity: 0;
+  transition: .3s;
+  z-index: 100;
+}
+.toast.show {
+  transform: translateX(-50%) translateY(0);
+  opacity: 1;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <h1>JASPR COA STORE</h1>
+  <div class="tagline">Curse of Aros • Trusted Seller</div>
+  <div class="status">OFF BUY</div>
+</header>
+
+<div class="promo" id="promo">
+  📢 Order via Instagram @jaspr.coashop • Fast Delivery
+</div>
+
+<div class="info">
+  🔒 <b>Instagram Only</b><br>
+  <span>@jaspr.coashop</span><br><br>
+  Jam: <b>17:00 - 22:00 WIB</b><br>
+  Libur: <b>Jumat, Sabtu, Minggu</b>
+</div>
+
+<!-- ================= PRODUCT SECTIONS ================= -->
+<div class="section">
+  <h3>💰 Gold</h3>
+  <div class="grid" id="goldGrid"></div>
+</div>
+
+<div class="section">
+  <h3>🎁 Bundle</h3>
+  <div class="grid" id="bundleGrid"></div>
+</div>
+
+<div class="section">
+  <h3>⚔️ Armor & Senjata</h3>
+  <div class="grid" id="armorGrid"></div>
+</div>
+
+<div class="section">
+  <h3>🐾 Pet</h3>
+  <div class="grid" id="petGrid"></div>
+</div>
+
+<footer>
+  Instagram only • Anti judol • © JASPR COA
+</footer>
+
+</div>
+
+<!-- ================= DATA ================= -->
+<script>
+const products = {
+  gold: [
+    { name:'Gold 1M', price:3000, badge:'FAST', tag:'best' },
+    { name:'Gold 5M', price:12500, badge:'VALUE', tag:'best' },
+    { name:'Gold 10M', price:26000, badge:'LIMITED', tag:'limited' }
+  ],
+  bundle: [
+    { name:'Essence Starter Pack', desc:'5M Gold + 1000 Essence', price:14000, badge:'LIMITED', tag:'bundle' },
+    { name:'Basic Pack Essence', desc:'10M Gold + 2000 Essence', price:29000, badge:'PROMO', tag:'bundle' }
+  ],
+  armor: [
+    { name:'Crimstone Armor Set', desc:'Full Set + Senjata', price:2000, badge:'TERBATAS', tag:'armor' },
+    { name:'Magic Armor Set', desc:'Armor Merah Full', price:2000, badge:'TERBATAS', tag:'armor' }
+  ],
+  pet: [
+    { name:'Seady Pet', desc:'Rare Pet', price:285000, badge:'EXCLUSIVE', tag:'pet' }
+  ]
+};
+</script>
+
+<!-- ================= RENDER ================= -->
+<script>
+function createCard(p) {
+  return `
+    <div class="card">
+      <div class="badge ${p.tag}">${p.badge}</div>
+      <h4>${p.name}</h4>
+      ${p.desc ? `<div class="desc">${p.desc}</div>` : ''}
+      <div class="price">Rp ${p.price.toLocaleString('id-ID')}</div>
+      <div class="stock">⏳ BELUM TERSEDIA</div>
+      <button>STOCK KOSONG</button>
+    </div>
+  `;
+}
+
+function render() {
+  goldGrid.innerHTML   = products.gold.map(createCard).join('');
+  bundleGrid.innerHTML = products.bundle.map(createCard).join('');
+  armorGrid.innerHTML  = products.armor.map(createCard).join('');
+  petGrid.innerHTML    = products.pet.map(createCard).join('');
+}
+
+render();
+</script>
+
+</body>
+  </html>  font-weight:700;
 }
 .best{background:#7c3aed}
 .hemat{background:#16a34a}
