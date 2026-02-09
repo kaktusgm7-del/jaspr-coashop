@@ -2,21 +2,25 @@
 <html lang="id">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1">
 <title>JASPR COA STORE</title>
 
 <style>
-/* ========== RESET & BASE ========== */
-*{
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
+:root{
+  --red:#dc2626;
+  --blue:#0f172a;
+  --purple:#1e1033;
+  --gold:#fbbf24;
+  --card:#14162b;
+  --border:rgba(255,255,255,.08);
+  --text:#e5e7eb;
+  --muted:#9ca3af;
 }
 
+*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif}
 body{
-  background:#0b0f1f;
-  color:#fff;
+  background:linear-gradient(180deg,var(--blue),#050814);
+  color:var(--text);
   min-height:100vh;
 }
 
@@ -26,85 +30,347 @@ body{
   padding:16px;
 }
 
-/* ========== HEADER ========== */
+/* ================= HEADER ================= */
 header{
   text-align:center;
-  margin-bottom:16px;
+  margin-bottom:18px;
 }
-
-header h1{
-  font-size:24px;
-  color:#ffd166;
-  margin-bottom:6px;
+h1{
+  font-size:26px;
+  font-weight:800;
+  color:var(--gold);
+  letter-spacing:.5px;
 }
-
 .tagline{
   font-size:13px;
-  opacity:.7;
-  margin-bottom:10px;
+  color:var(--muted);
+  margin-top:4px;
 }
-
 .status{
   display:inline-block;
+  margin-top:10px;
   padding:8px 18px;
-  border-radius:20px;
+  border-radius:999px;
   font-size:12px;
   font-weight:700;
-  background:#4b5563;
+}
+.status.open{
+  background:linear-gradient(45deg,#16a34a,#22c55e);
+  animation:pulse 2s infinite;
+}
+.status.off{
+  background:#374151;
+}
+.status.holiday{
+  background:#7f1d1d;
+}
+
+@keyframes pulse{
+  0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}
+  70%{box-shadow:0 0 0 10px rgba(34,197,94,0)}
+  100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}
 }
 
 #countdown{
   margin-top:6px;
   font-size:12px;
   color:#fca5a5;
-  min-height:16px;
 }
 
-/* ========== PROMO BAR ========== */
+/* ================= PROMO ================= */
 .promo{
-  background:linear-gradient(90deg,#1a0030,#2a0015);
-  border:1px solid #3a0a14;
-  color:#fca5a5;
+  background:linear-gradient(90deg,var(--purple),#2a0f1c);
+  border:1px solid var(--border);
+  border-radius:12px;
+  padding:10px;
+  text-align:center;
   font-size:13px;
   font-weight:600;
-  padding:10px;
-  border-radius:10px;
-  text-align:center;
-  margin-bottom:16px;
+  color:#fecaca;
+  margin-bottom:18px;
   transition:opacity .3s;
 }
 
-/* ========== INFO BOX ========== */
+/* ================= INFO ================= */
 .info{
-  background:#120015;
-  border:1px solid #3a0a14;
-  border-radius:12px;
+  background:#0b0e24;
+  border:1px solid var(--border);
+  border-radius:14px;
   padding:14px;
   text-align:center;
   font-size:13px;
-  line-height:1.5;
-  margin-bottom:20px;
+  line-height:1.6;
+  margin-bottom:22px;
 }
-
 .info span{
-  color:#fca5a5;
-  font-weight:600;
+  color:var(--gold);
+  font-weight:700;
 }
 
-/* ========== SECTION ========== */
+/* ================= SECTION ================= */
 .section{
   margin-bottom:26px;
 }
-
 .section h3{
   font-size:15px;
   color:#c7d2fe;
   margin-bottom:12px;
 }
 
-/* ========== GRID (ANTI BOCO R) ========== */
+/* ================= GRID ================= */
 .grid{
   display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(170px,1fr));
+  gap:14px;
+}
+
+/* ================= CARD ================= */
+.card{
+  background:var(--card);
+  border:1px solid var(--border);
+  border-radius:16px;
+  padding:14px;
+  position:relative;
+  display:flex;
+  flex-direction:column;
+}
+.card h4{
+  font-size:14px;
+  font-weight:700;
+  line-height:1.3;
+  margin-bottom:6px;
+  padding-right:70px; /* anti ketimpa badge */
+}
+.desc{
+  font-size:12px;
+  color:#a5b4fc;
+  margin-bottom:6px;
+}
+.price{
+  font-size:16px;
+  font-weight:800;
+  color:var(--gold);
+  margin:8px 0;
+}
+.stock{
+  font-size:12px;
+  font-weight:700;
+  color:#f87171;
+  margin-bottom:10px;
+}
+
+/* ================= BADGE ================= */
+.badge{
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:10px;
+  font-weight:800;
+  padding:4px 10px;
+  border-radius:999px;
+  background:linear-gradient(45deg,var(--red),#991b1b);
+}
+
+/* ================= BUTTON ================= */
+button{
+  margin-top:auto;
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:12px;
+  background:#374151;
+  color:#9ca3af;
+  font-weight:700;
+  cursor:not-allowed;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  margin-top:30px;
+  padding-top:16px;
+  border-top:1px solid var(--border);
+  text-align:center;
+  font-size:12px;
+  color:var(--muted);
+  line-height:1.6;
+}
+
+/* ================= TOAST ================= */
+.toast{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%) translateY(80px);
+  background:linear-gradient(45deg,#16a34a,#22c55e);
+  color:#fff;
+  padding:12px 18px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:700;
+  opacity:0;
+  transition:.3s;
+  z-index:99;
+}
+.toast.show{
+  transform:translateX(-50%) translateY(0);
+  opacity:1;
+}
+
+/* ================= MOBILE SAFE ================= */
+@media(max-width:360px){
+  h1{font-size:22px}
+  .grid{grid-template-columns:1fr}
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <h1>JASPR COA STORE</h1>
+  <div class="tagline">Curse of Aros • Trusted Seller</div>
+  <div id="status" class="status off">OFF BUY</div>
+  <div id="countdown"></div>
+</header>
+
+<div class="promo" id="promo">📢 Order via Instagram @jaspr.coashop</div>
+
+<div class="info">
+  🔒 <b>Instagram Only</b><br>
+  <span>@jaspr.coashop</span><br><br>
+  Jam Operasional: <b>17:00 – 22:00 WIB</b><br>
+  Libur: <b>Jumat, Sabtu, Minggu</b>
+</div>
+
+<!-- ================= PRODUK ================= -->
+<div class="section">
+  <h3>💰 Gold</h3>
+  <div class="grid">
+    <div class="card">
+      <div class="badge">BEST</div>
+      <h4>Gold 1M</h4>
+      <div class="price">Rp 3.000</div>
+      <div class="stock">❌ BELUM TERSEDIA</div>
+      <button>OFFLINE</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">VALUE</div>
+      <h4>Gold 5M</h4>
+      <div class="price">Rp 12.500</div>
+      <div class="stock">❌ BELUM TERSEDIA</div>
+      <button>OFFLINE</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">LIMITED</div>
+      <h4>Gold 10M</h4>
+      <div class="price">Rp 26.000</div>
+      <div class="stock">❌ BELUM TERSEDIA</div>
+      <button>OFFLINE</button>
+    </div>
+  </div>
+</div>
+
+<div class="section">
+  <h3>🎁 Bundle</h3>
+  <div class="grid">
+    <div class="card">
+      <div class="badge">BUNDLE</div>
+      <h4>Essence Starter Pack</h4>
+      <div class="desc">1M Gold + 500 Essence</div>
+      <div class="price">Rp 14.000</div>
+      <div class="stock">❌ BELUM TERSEDIA</div>
+      <button>OFFLINE</button>
+    </div>
+
+    <div class="card">
+      <div class="badge">BUNDLE</div>
+      <h4>Basic Essence Pack</h4>
+      <div class="desc">5M Gold + 1000 Essence</div>
+      <div class="price">Rp 29.000</div>
+      <div class="stock">❌ BELUM TERSEDIA</div>
+      <button>OFFLINE</button>
+    </div>
+  </div>
+</div>
+
+<footer id="footer">Loading...</footer>
+</div>
+
+<div class="toast" id="toast">📋 Format order disalin</div>
+
+<script>
+/* ========== PROMO ROTATION ========== */
+const promos=[
+  "📢 Order via Instagram @jaspr.coashop",
+  "⏰ Open 17:00 – 22:00 WIB",
+  "🔒 Instagram Only • Anti Judol",
+  "🎁 Bundle Essence • Limited",
+  "⚔️ Armor & Item • Coming Soon"
+];
+let p=0;
+setInterval(()=>{
+  const el=document.getElementById("promo");
+  el.style.opacity=0;
+  setTimeout(()=>{
+    el.textContent=promos[p];
+    p=(p+1)%promos.length;
+    el.style.opacity=1;
+  },300);
+},10000);
+
+/* ========== STATUS SYSTEM ========== */
+function updateStatus(){
+  const now=new Date();
+  const h=now.getHours();
+  const d=now.getDay();
+  const status=document.getElementById("status");
+  const cd=document.getElementById("countdown");
+
+  if(d===5||d===6||d===0){
+    status.className="status holiday";
+    status.textContent="LIBUR";
+    cd.textContent="";
+    return;
+  }
+
+  if(h>=17&&h<22){
+    status.className="status open";
+    status.textContent="OPEN BUY";
+    cd.textContent=`Tutup dalam ${22-h} jam`;
+  }else{
+    status.className="status off";
+    status.textContent="OFF BUY";
+    const t=new Date();
+    t.setHours(17,0,0,0);
+    if(now>t)t.setDate(t.getDate()+1);
+    const diff=t-now;
+    const hh=Math.floor(diff/36e5);
+    const mm=Math.floor(diff%36e5/6e4);
+    cd.textContent=`Buka dalam ${hh}j ${mm}m`;
+  }
+}
+setInterval(updateStatus,60000);
+updateStatus();
+
+/* ========== FOOTER ========== */
+function updateFooter(){
+  const n=new Date();
+  document.getElementById("footer").innerHTML=
+  `Update: ${n.toLocaleDateString("id-ID")} • ${n.toLocaleTimeString("id-ID",{hour:'2-digit',minute:'2-digit'})} WIB<br>
+   © JASPR COA • Instagram Only`;
+}
+updateFooter();
+setInterval(updateFooter,30000);
+
+/* ========== BASIC ANTI CLONE ========== */
+document.addEventListener("contextmenu",e=>e.preventDefault());
+document.addEventListener("selectstart",e=>e.preventDefault());
+</script>
+</body>
+        </html>  display:grid;
   grid-template-columns:repeat(2,1fr);
   gap:12px;
 }
