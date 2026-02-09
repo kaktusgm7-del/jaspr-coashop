@@ -6,26 +6,24 @@
 <title>JASPR COA STORE</title>
 
 <style>
-:root{
-  --red:#dc2626;
-  --blue:#0f172a;
-  --purple:#1e1033;
-  --gold:#fbbf24;
-  --card:#14162b;
-  --border:rgba(255,255,255,.08);
-  --text:#e5e7eb;
-  --muted:#9ca3af;
+/* ================= RESET & GLOBAL LOCK ================= */
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+  font-family:system-ui,-apple-system,BlinkMacSystemFont,sans-serif;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:system-ui,-apple-system,sans-serif}
-body{
-  background:linear-gradient(180deg,var(--blue),#050814);
-  color:var(--text);
-  min-height:100vh;
+html,body{
+  max-width:100%;
+  overflow-x:hidden; /* ANTI SCROLL BOCOR */
+  background:#0b0f1f;
+  color:#fff;
 }
 
+/* ================= CONTAINER ================= */
 .container{
-  max-width:980px;
+  max-width:1100px;
   margin:auto;
   padding:16px;
 }
@@ -35,66 +33,53 @@ header{
   text-align:center;
   margin-bottom:18px;
 }
-h1{
-  font-size:26px;
+
+header h1{
+  font-size:24px;
   font-weight:800;
-  color:var(--gold);
-  letter-spacing:.5px;
+  color:#ffd166;
+  margin-bottom:4px;
 }
+
 .tagline{
   font-size:13px;
-  color:var(--muted);
-  margin-top:4px;
+  opacity:.7;
 }
+
 .status{
-  display:inline-block;
   margin-top:10px;
+  display:inline-block;
   padding:8px 18px;
   border-radius:999px;
   font-size:12px;
   font-weight:700;
-}
-.status.open{
-  background:linear-gradient(45deg,#16a34a,#22c55e);
-  animation:pulse 2s infinite;
-}
-.status.off{
-  background:#374151;
-}
-.status.holiday{
-  background:#7f1d1d;
-}
-
-@keyframes pulse{
-  0%{box-shadow:0 0 0 0 rgba(34,197,94,.5)}
-  70%{box-shadow:0 0 0 10px rgba(34,197,94,0)}
-  100%{box-shadow:0 0 0 0 rgba(34,197,94,0)}
+  background:#4b5563;
 }
 
 #countdown{
-  margin-top:6px;
   font-size:12px;
+  margin-top:6px;
   color:#fca5a5;
 }
 
 /* ================= PROMO ================= */
 .promo{
-  background:linear-gradient(90deg,var(--purple),#2a0f1c);
-  border:1px solid var(--border);
+  margin:16px 0;
+  background:linear-gradient(90deg,#1a0030,#2a0015);
+  border:1px solid #3a0a14;
   border-radius:12px;
   padding:10px;
   text-align:center;
   font-size:13px;
   font-weight:600;
-  color:#fecaca;
-  margin-bottom:18px;
+  color:#fca5a5;
   transition:opacity .3s;
 }
 
 /* ================= INFO ================= */
 .info{
-  background:#0b0e24;
-  border:1px solid var(--border);
+  background:#120015;
+  border:1px solid #3a0a14;
   border-radius:14px;
   padding:14px;
   text-align:center;
@@ -102,9 +87,286 @@ h1{
   line-height:1.6;
   margin-bottom:22px;
 }
+
 .info span{
-  color:var(--gold);
+  color:#fca5a5;
   font-weight:700;
+}
+
+/* ================= SECTION ================= */
+.section{
+  margin-bottom:26px;
+}
+
+.section h3{
+  font-size:15px;
+  margin-bottom:12px;
+  color:#c7d2fe;
+}
+
+/* ================= GRID (LOCKED) ================= */
+.grid{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:12px;
+}
+
+@media (max-width:900px){
+  .grid{ grid-template-columns:repeat(2,1fr); }
+}
+
+@media (max-width:420px){
+  .grid{ grid-template-columns:1fr; }
+}
+
+/* ================= CARD ================= */
+.card{
+  background:#141a33;
+  border:1px solid rgba(255,255,255,.08);
+  border-radius:16px;
+  padding:14px;
+  position:relative;
+  overflow:hidden; /* KUNCI BADGE & ISI */
+}
+
+.card h4{
+  font-size:14px;
+  line-height:1.35;
+  margin-bottom:6px;
+  padding-right:70px; /* ANTI KETIMPA BADGE */
+  word-break:break-word;
+}
+
+.desc{
+  font-size:12px;
+  color:#a5b4fc;
+  margin-bottom:6px;
+}
+
+.price{
+  font-size:16px;
+  font-weight:800;
+  color:#fbbf24;
+  margin:8px 0;
+}
+
+.stock{
+  font-size:12px;
+  font-weight:700;
+  margin-bottom:8px;
+  color:#dc2626;
+}
+
+/* ================= BADGE ================= */
+.badge{
+  position:absolute;
+  top:10px;
+  right:10px;
+  font-size:10px;
+  font-weight:800;
+  padding:4px 10px;
+  border-radius:999px;
+  white-space:nowrap;
+}
+
+.badge.best{background:#7c3aed;}
+.badge.bundle{background:#0ea5e9;}
+.badge.limited{background:#dc2626;}
+.badge.armor{background:#f59e0b;color:#000;}
+.badge.pet{background:#ec4899;}
+
+/* ================= BUTTON ================= */
+button{
+  width:100%;
+  padding:10px;
+  border:none;
+  border-radius:12px;
+  background:#374151;
+  color:#9ca3af;
+  font-weight:700;
+  cursor:not-allowed;
+}
+
+/* ================= FOOTER ================= */
+footer{
+  margin-top:32px;
+  padding-top:14px;
+  border-top:1px solid rgba(255,255,255,.08);
+  text-align:center;
+  font-size:12px;
+  color:#9ca3af;
+  line-height:1.6;
+}
+
+/* ================= TOAST ================= */
+.toast{
+  position:fixed;
+  bottom:20px;
+  left:50%;
+  transform:translateX(-50%) translateY(100px);
+  background:#22c55e;
+  color:#fff;
+  padding:12px 18px;
+  border-radius:12px;
+  font-size:13px;
+  font-weight:700;
+  opacity:0;
+  transition:.3s;
+  z-index:999;
+}
+
+.toast.show{
+  transform:translateX(-50%) translateY(0);
+  opacity:1;
+}
+</style>
+</head>
+
+<body>
+<div class="container">
+
+<header>
+  <h1>JASPR COA STORE</h1>
+  <div class="tagline">Curse of Aros • Trusted Seller</div>
+  <div id="status" class="status">CHECKING...</div>
+  <div id="countdown"></div>
+</header>
+
+<div class="promo" id="promo">📢 Order via Instagram @jaspr.coashop</div>
+
+<div class="info">
+  🔒 <b>Instagram Only</b><br>
+  <span>@jaspr.coashop</span><br><br>
+  Jam Operasional: <b>17:00 - 22:00 WIB</b><br>
+  Libur: <b>Jumat, Sabtu, Minggu</b>
+</div>
+
+<div class="section">
+  <h3>💰 Gold</h3>
+  <div class="grid" id="goldGrid"></div>
+</div>
+
+<div class="section">
+  <h3>🎁 Bundle</h3>
+  <div class="grid" id="bundleGrid"></div>
+</div>
+
+<div class="section">
+  <h3>⚔️ Armor</h3>
+  <div class="grid" id="armorGrid"></div>
+</div>
+
+<div class="section">
+  <h3>🐾 Pet</h3>
+  <div class="grid" id="petGrid"></div>
+</div>
+
+<footer id="footer">Loading...</footer>
+</div>
+
+<div class="toast" id="toast">📋 Format order disalin</div>
+
+<script>
+/* ================= DATA (SEMUA STOCK 0 / BELUM TERSEDIA) ================= */
+const products = {
+  gold: [
+    {name:'Gold 1M', price:3000, badge:'FAST', tag:'best'},
+    {name:'Gold 5M', price:12500, badge:'VALUE', tag:'best'},
+    {name:'Gold 10M', price:26000, badge:'LIMITED', tag:'limited'}
+  ],
+  bundle: [
+    {name:'Essence Starter Pack', desc:'1M Gold + 500 Essence', price:0, badge:'BUNDLE', tag:'bundle'},
+    {name:'Basic Essence Pack', desc:'5M Gold + 1000 Essence', price:0, badge:'BUNDLE', tag:'bundle'}
+  ],
+  armor: [
+    {name:'Crimstone Armor Set', price:0, badge:'TERBATAS', tag:'armor'},
+    {name:'Magic Armor Set', price:0, badge:'TERBATAS', tag:'armor'}
+  ],
+  pet: [
+    {name:'Seady Pet', price:0, badge:'EXCLUSIVE', tag:'pet'}
+  ]
+};
+
+/* ================= RENDER ================= */
+function card(p){
+  return `
+  <div class="card">
+    <div class="badge ${p.tag}">${p.badge}</div>
+    <h4>${p.name}</h4>
+    ${p.desc?`<div class="desc">${p.desc}</div>`:''}
+    <div class="price">${p.price>0?'Rp '+p.price.toLocaleString('id-ID'):'—'}</div>
+    <div class="stock">❌ BELUM TERSEDIA</div>
+    <button>OFF BUY</button>
+  </div>`;
+}
+
+function render(){
+  goldGrid.innerHTML = products.gold.map(card).join('');
+  bundleGrid.innerHTML = products.bundle.map(card).join('');
+  armorGrid.innerHTML = products.armor.map(card).join('');
+  petGrid.innerHTML = products.pet.map(card).join('');
+}
+
+/* ================= STATUS OTOMATIS ================= */
+function updateStatus(){
+  const now=new Date();
+  const h=now.getHours();
+  const d=now.getDay();
+  const s=document.getElementById('status');
+  const c=document.getElementById('countdown');
+
+  if(d===5||d===6||d===0){
+    s.textContent='OFF BUY (LIBUR)';
+    s.style.background='#7f1d1d';
+    c.textContent='';
+    return;
+  }
+
+  if(h>=17&&h<22){
+    s.textContent='OPEN BUY • ONLINE';
+    s.style.background='#16a34a';
+    c.textContent='⏰ Tutup jam 22:00';
+  }else{
+    s.textContent='OFF BUY';
+    s.style.background='#4b5563';
+    c.textContent='⏰ Buka jam 17:00';
+  }
+}
+
+/* ================= PROMO ROTATE ================= */
+const promos=[
+  '📢 Order via Instagram @jaspr.coashop',
+  '🚫 Anti Judol • Aman & Trusted',
+  '⏰ Open 17:00 - 22:00 WIB',
+  '⚠️ Semua item saat ini belum tersedia'
+];
+let i=0;
+setInterval(()=>{
+  promo.style.opacity='0';
+  setTimeout(()=>{
+    promo.textContent=promos[i++%promos.length];
+    promo.style.opacity='1';
+  },300);
+},8000);
+
+/* ================= FOOTER ================= */
+function updateFooter(){
+  const n=new Date();
+  footer.innerHTML=`Update ${n.toLocaleDateString('id-ID')} • ${n.toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})} WIB<br>© JASPR COA`;
+}
+
+/* ================= INIT ================= */
+render();
+updateStatus();
+updateFooter();
+setInterval(updateStatus,60000);
+setInterval(updateFooter,30000);
+
+/* Basic anti clone ringan */
+document.addEventListener('contextmenu',e=>e.preventDefault());
+</script>
+</body>
+</html>  font-weight:700;
 }
 
 /* ================= SECTION ================= */
